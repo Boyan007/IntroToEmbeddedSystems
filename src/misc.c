@@ -8,32 +8,36 @@
  * misuse of this material. 
  *
  *****************************************************************************/
+
 /**
- * @file main.c
- * @brief Main entry point to the final Assessment
- *
- * This file contains the main code for the final assesment. Students
- * are not to change any of the code, they are instead supposed to compile
- * these files with their makefile.
+ * @file misc.h 
+ * @brief This file is to be used for the c1m2 assesment
  *
  * @author Alex Fosdick
- * @date April 1 2017
+ * @date April 2, 2017
  *
  */
-#include "platform.h"
-#include "memory.h"
-#include "course1.h"
+#include "misc.h"
 
-#define MAX_LENGTH (10)
-char buffer[MAX_LENGTH];
+#define SOME_VALUE (6)
 
+int g5[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-int main(void) {
+int func(int * f1)
+{
+  static int f2;
+  unsigned int f3 = 0;
+  volatile char * f4 = "Hello World!\n";
 
-#ifdef COURSE1
-  course1();
-#endif
+  f2++;
+  *(&g5[0] + f2) = f3;
 
-  return 0;
+  for (f3 = 0; f3 < SOME_VALUE; f3++)
+  {
+    g5[f3] = f4[f3];
+    f2++;
+  }
+
+  return f2;
 }
 
